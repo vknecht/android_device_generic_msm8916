@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- limit the number of rows so that quicksettings buttons
+         do not overlap with navigation buttons on small screen -->
+    <integer name="quick_settings_max_rows">3</integer>
+</resources>

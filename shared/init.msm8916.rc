@@ -1,0 +1,73 @@
+import init.${ro.hardware}.usb.rc
+import init.${ro.hardware}.power.rc
+
+on fs
+    mount_all /vendor/etc/fstab.${ro.hardware}
+    swapon_all /vendor/etc/fstab.${ro.hardware}
+
+on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+
+    # make sure remoteprocs have booted, some will attempt
+    # to start before firmware is available and not automatically
+    # retry.
+    write /sys/class/remoteproc/remoteproc0/state start
+    write /sys/class/remoteproc/remoteproc1/state start
+
+on init
+    # Initialize cpusets to boot-time values
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-3
+
+    # msm8916 doesn't support compression (for now, at least)
+    export MINIGBM_DEBUG nocompression
+
+on early-boot
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 755 /sys/kernel/debug
+    chmod 755 /sys/kernel/debug/sync
+    chown graphics graphics /sys/kernel/debug/sync/sw_sync
+    chmod 777 /sys/kernel/debug/sync/sw_sync
+    chown graphics graphics /sys/kernel/debug/sync/info
+
+on zygote-start
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
+on post-fs-data
+    # set sys.memfd_use to true now that the ashmem is dropped v5.18
+    # https://lore.kernel.org/all/20220315123457.2354812-1-hch@lst.de/.
+    setprop sys.use_memfd true
+
+on property:sys.boot_completed=1
+    chmod 0755 /sys/kernel/debug/tracing
+
+    # update cpuset now that processors are up
+    # Foreground should contain most cores (3 is reserved for top-app)
+    write /dev/cpuset/foreground/cpus 0-2
+
+    # top-app gets all cpus (including reserved #3)
+    write /dev/cpuset/top-app/cpus 0-3
+
+    #background contains a small subset (generally one little core)
+    write /dev/cpuset/background/cpus 0
+
+    # add system-background cpuset, a new cpuset for system services
+    # that should not run on larger cores
+    # system-background is for system tasks that should only run on
+    # little cores, not on bigs to be used only by init
+    write /dev/cpuset/system-background/cpus 0-1
+
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+                       -Dnl80211 -g@android:wpa_wlan0
+    interface aidl android.hardware.wifi.supplicant.ISupplicant/default
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
+    socket wpa_wlan0 dgram 660 wifi wifi
+    class main
+    disabled
+    oneshot

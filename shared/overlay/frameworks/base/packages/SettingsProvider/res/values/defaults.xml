@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="def_screen_off_timeout">2147483647</integer>
+    <bool name="def_lockscreen_disabled">false</bool>
+    <bool name="def_stay_on_while_plugged_in">true</bool>
+    <integer name="def_screen_brightness">64</integer>
+    <bool name="def_bluetooth_on">false</bool>
+</resources>

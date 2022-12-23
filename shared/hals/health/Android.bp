@@ -1,0 +1,40 @@
+cc_library_shared {
+    name: "android.hardware.health@2.1-impl-msm8916",
+    stem: "android.hardware.health@2.0-impl-2.1-msm8916",
+
+    // Install to vendor and recovery.
+    proprietary: true,
+    //recovery_available: true,
+
+    relative_install_path: "hw",
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "android.hardware.health@2.1",
+        "android.hardware.health@2.0",
+    ],
+
+    static_libs: [
+        "android.hardware.health@1.0-convert",
+        "libbatterymonitor",
+        "libhealthloop",
+        "libhealth2impl",
+        // "libhealthd.<device>"
+    ],
+
+    srcs: [
+        "HealthImpl.cpp",
+    ],
+
+    // No vintf_fragments because both -impl and -service should have been
+    // installed.
+}
