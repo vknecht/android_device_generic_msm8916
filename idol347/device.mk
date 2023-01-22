@@ -18,6 +18,7 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_RAMDISK)/fstab.idol347 \
     $(LOCAL_PATH)/fstab.ramdisk:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.idol347 \
     $(LOCAL_PATH)/etc/audio.idol347.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio.idol347.xml \
+    $(LOCAL_PATH)/etc/sensors.idol347.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sensors.idol347.rc \
     device/generic/msm8916/shared/init.msm8916.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.idol347.rc \
     device/generic/msm8916/shared/init.msm8916.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.idol347.usb.rc \
     device/generic/msm8916/shared/key_layout.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/idol347.kl

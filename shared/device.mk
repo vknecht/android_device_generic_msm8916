@@ -195,6 +195,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.1-service.ff
 
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors.iio \
+    android.hardware.sensors@1.0-impl:64 \
+    android.hardware.sensors@1.0-service
+
 # Copy standard platform config files
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/ueventd.common.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
