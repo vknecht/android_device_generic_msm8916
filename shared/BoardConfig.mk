@@ -90,6 +90,8 @@ BOARD_SEPOLICY_DIRS += \
 # New BT fix : https://android-review.googlesource.com/c/device/linaro/dragonboard/+/2103025/
 TARGET_PRODUCT_PROP := device/generic/msm8916/shared/product.prop
 
+include device/generic/msm8916/shared/modem_manager/board_mm.mk
+
 DEVICE_MANIFEST_FILE := device/generic/msm8916/shared/manifest.xml
 DEVICE_MATRIX_FILE := device/generic/msm8916/shared/compatibility_matrix.xml
 

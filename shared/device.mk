@@ -221,6 +221,8 @@ PRODUCT_COPY_FILES += \
 # Copy firmware files
 $(call inherit-product-if-exists, $(LOCAL_PATH)/firmware/device.mk)
 
+$(call inherit-product, device/generic/msm8916/shared/modem_manager/device_mm.mk)
+
 PRODUCT_SOONG_NAMESPACES += \
     device/generic/msm8916 \
     external/mesa3d
