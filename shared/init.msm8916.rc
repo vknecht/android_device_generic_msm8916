@@ -22,6 +22,9 @@ on init
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-3
 
+    # TODO: Avoid going into suspend until it works properly
+    write /sys/power/wake_lock MSM8916.DisableSuspend
+
     # msm8916 doesn't support compression (for now, at least)
     export MINIGBM_DEBUG nocompression
 
