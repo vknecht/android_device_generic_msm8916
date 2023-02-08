@@ -90,7 +90,8 @@ PRODUCT_PACKAGES += \
     tqftpserv
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/init.vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.vendor.rc
+    $(LOCAL_PATH)/vendor/init.vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.vendor.rc \
+    $(LOCAL_PATH)/etc/fstab.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
