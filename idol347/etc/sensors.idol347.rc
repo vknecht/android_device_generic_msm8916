@@ -1,5 +1,4 @@
 on early-init
     setprop ro.hardware.sensors iio
-    setprop ro.iio.accel.quirks "no-trig,no-event"
-    setprop ro.iio.anglvel.quirks "no-trig,no-event"
-    setprop ro.iio.magn.quirks "no-trig,no-event"
+    # magnetometer has no IRQ and therefore no trigger
+    setprop ro.iio.magn.quirks no-trig
