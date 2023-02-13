@@ -4,6 +4,8 @@
 #
 # Copyright (C) 2022 Roman Stratiienko (r.stratiienko@gmail.com)
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
 # dbus-1
 PRODUCT_PACKAGES += \
     dbus-cleanup-sockets dbus-daemon dbus-daemon-launch-helper dbus-launch dbus-monitor dbus-run-session dbus-send dbus-test-tool dbus-update-activation-environment dbus-uuidgen \
@@ -29,3 +31,9 @@ PRODUCT_COPY_FILES += \
 # Radio HAL
 PRODUCT_PACKAGES += \
     android.hardware.mm-radio-service \
+    android.hardware.mmradio.rc \
+    android.hardware.mmradio.xml \
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
