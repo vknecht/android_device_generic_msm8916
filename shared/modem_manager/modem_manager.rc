@@ -2,7 +2,7 @@ service dbus-1.0 /vendor/bin/dbus-daemon --system --nofork
     user root
     group root
 
-service modemmanager /vendor/bin/ModemManager --log-level=DEBUG
+service modemmanager /vendor/bin/ModemManager --log-level=INFO
     user root
     group root
 
