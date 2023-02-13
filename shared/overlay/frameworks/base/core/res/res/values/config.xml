@@ -21,12 +21,6 @@
      for different hardware and product builds. -->
 <resources>
 
-    <!-- This device is not "voice capable"; it's data-only. -->
-    <bool name="config_voice_capable">false</bool>
-
-    <!-- This device does not allow sms service. -->
-    <bool name="config_sms_capable">false</bool>
-
     <!-- Separate software navigation bar required on this device. -->
     <bool name="config_showNavigationBar">true</bool>
 
