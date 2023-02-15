@@ -77,6 +77,9 @@
         </path>
     </device>
 
+    <!-- required for processing AUDIO_MODE_IN_CALL in tinyhal -->
+    <device name="voice" />
+
     <!-- idol3 headphones, PlaybackPCM "hw:${CardId},0" -->
     <stream type="pcm" dir="out" card="0" device="0">
         <enable path="pcm_out_en"/>
