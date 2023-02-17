@@ -82,4 +82,6 @@
         <item>7</item>
     </integer-array>
 
+    <bool name="config_nightDisplayAvailable">true</bool>
+
 </resources>
