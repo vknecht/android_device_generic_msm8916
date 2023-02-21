@@ -25,8 +25,7 @@ PRODUCT_PACKAGES += \
     ModemManager mmcli libmm-glib org.freedesktop.ModemManager1.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/modem_manager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modem_manager.rc \
-    $(LOCAL_PATH)/android.hardware.radio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.radio.xml \
+    $(LOCAL_PATH)/modem_manager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modem_manager.rc
 
 # Radio HAL
 PRODUCT_PACKAGES += \
