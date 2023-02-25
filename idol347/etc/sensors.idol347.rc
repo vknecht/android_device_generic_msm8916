@@ -2,3 +2,6 @@ on early-init
     setprop ro.hardware.sensors iio
     # magnetometer has no IRQ and therefore no trigger
     setprop ro.iio.magn.quirks no-trig
+    # proximity sensor doesn't report distance in cm
+    setprop ro.iio.proximity.quirks binarize
+    setprop ro.iio.prox.stk3310.nearlevel 150
