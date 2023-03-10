@@ -3,6 +3,7 @@ TARGET_KERNEL_USE := mainline
 endif
 
 KERNEL_MODS := $(wildcard device/generic/msm8916/shared/prebuilt-kernel/android-$(TARGET_KERNEL_USE)/*.ko)
+KERNEL_MODS += $(wildcard device/generic/msm8916/shared/prebuilt-kernel/android-$(TARGET_KERNEL_USE)/panels/$(TARGET_PRODUCT)/*.ko)
 
 # Following modules go to vendor partition
 VENDOR_KERN_MODS :=
