@@ -3,7 +3,9 @@
 # Adreno
 PRODUCT_PACKAGES :=	\
     a300_pfp.fw		\
-    a300_pm4.fw
+    a300_pm4.fw		\
+    a420_pfp.fw		\
+    a420_pm4.fw
 
 # Venus
 # Video encoder/decoder accelerator
@@ -24,6 +26,8 @@ PRODUCT_PACKAGES +=	\
 PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/a300_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a300_pfp.fw \
     $(LOCAL_PATH)/a300_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a300_pm4.fw \
+    $(LOCAL_PATH)/a420_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a420_pfp.fw \
+    $(LOCAL_PATH)/a420_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a420_pm4.fw \
     $(LOCAL_PATH)/venus.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/venus-1.8/venus.b00 \
     $(LOCAL_PATH)/venus.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/venus-1.8/venus.b01 \
     $(LOCAL_PATH)/venus.b02:$(TARGET_COPY_OUT_VENDOR)/firmware/qcom/venus-1.8/venus.b02 \
