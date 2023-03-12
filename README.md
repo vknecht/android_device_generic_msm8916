@@ -1,10 +1,16 @@
-# device/generic/msm8916 (AOSP device config for MSM8916 devices)
+# device/generic/msm8916 (AOSP device config for MSM8916 & MSM8939 devices)
 
-This device repo aims to support booting AOSP on MSM8916 devices supported by the mainline Linux kernel.
+This device repo aims to support booting AOSP on MSM8916 & MSM8939 devices supported by the mainline Linux kernel.
 
 ## Supported devices
 
+### MSM8916 SoC
+
 * Alcatel Idol 3 4.7" (idol347)
+
+### MSM8939 SoC
+
+* Alcatel Idol 3 5.5" (idol3)
 
 # How to build and flash AOSP images?
 
@@ -13,8 +19,8 @@ This device repo aims to support booting AOSP on MSM8916 devices supported by th
 ```bash
 mkdir aosp-repo
 cd aosp-repo
-repo init -u https://android.googlesource.com/platform/manifest -b master
-git clone https://github.com/aospm/android_local_manifests .repo/local_manifests -b main
+repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r30
+git clone https://github.com/vknecht/aospm-android_local_manifests .repo/local_manifests -b msm8916
 repo sync -j$nproc
 source build/envsetup.sh
 # See table above

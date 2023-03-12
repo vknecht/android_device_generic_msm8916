@@ -1,0 +1,10 @@
+/dev/block/platform/soc@0/7824900.mmc/by-name/system /system ext4 noatime,ro,errors=panic wait,first_stage_mount
+/dev/block/platform/soc@0/7824900.mmc/by-name/cache /vendor ext4 noatime,ro,errors=panic wait,first_stage_mount
+/dev/block/platform/soc@0/7824900.mmc/by-name/userdata /data		ext4	discard,noatime,noauto_da_alloc,data=ordered,user_xattr,barrier=1,inlinecrypt	wait,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,quota
+
+# For firmwares
+#/dev/block/platform/soc@0/7824900.mmc/by-name/modem /vendor/odm/modem vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait
+/dev/block/platform/soc@0/7824900.mmc/by-name/modem /vendor/odm/modem vfat defaults wait
+/dev/block/platform/soc@0/7824900.mmc/by-name/persist /vendor/odm/persist ext4 noatime,ro,noauto_da_alloc wait
+
+/devices/platform/soc@0/7864900.mmc/mmc_host/mmc*	auto	auto	defaults	voldmanaged=sdcard1:auto
