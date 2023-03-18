@@ -1,3 +1,7 @@
+service uim-selection /vendor/bin/msm-modem-uim-selection.sh
+    user root
+    group root
+
 service dbus-1.0 /vendor/bin/dbus-daemon --system --nofork
     user root
     group root
@@ -10,6 +14,7 @@ on boot
     mkdir /mnt/var 0755 system system
     mkdir /mnt/var/run 0755 system system
     mkdir /mnt/var/run/dbus 0755 system system
+    exec_start uim-selection
     start dbus-1.0
     wait /mnt/var/run/dbus/system_bus_socket
     start modemmanager
