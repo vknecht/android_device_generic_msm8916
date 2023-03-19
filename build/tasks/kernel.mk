@@ -1,4 +1,4 @@
-ifneq ($(filter idol3 idol347, $(TARGET_DEVICE)),)
+ifneq ($(filter idol3 idol347 kiwi, $(TARGET_DEVICE)),)
 
 IMAGE_GZ := device/generic/msm8916/shared/prebuilt-kernel/android-$(TARGET_KERNEL_USE)/Image.gz
 DTB := $(wildcard device/generic/msm8916/shared/prebuilt-kernel/android-$(TARGET_KERNEL_USE)/*-$(TARGET_DEVICE).dtb)
