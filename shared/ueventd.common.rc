@@ -13,6 +13,9 @@
 # Backlights
 /sys/class/backlight/* brightness 0660 system system
 
+# Bluetooth
+/dev/rfkill 0660 bluetooth net_bt
+
 # Sensors
 /dev/iio:device* 0660 system system
 
