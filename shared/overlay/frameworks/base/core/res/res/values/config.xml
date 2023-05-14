@@ -84,4 +84,7 @@
 
     <bool name="config_nightDisplayAvailable">true</bool>
 
+    <bool name="config_useAttentionLight">true</bool>
+    <bool name="config_intrusiveNotificationLed">true</bool>
+
 </resources>
