@@ -1,0 +1,15 @@
+service vendor.light-default /vendor/bin/hw/android.hardware.lights-service
+    class hal
+    user system
+    group system
+    # FIXME: actually do this
+    # shutting off lights while powering-off
+    shutdown critical
+
+on early-init
+    chown system system /sys/class/backlight/backlight/brightness
+    chmod 0660 /sys/class/backlight/backlight/brightness
+    chown system system /sys/class/leds/led@1/brightness
+    chmod 0660 /sys/class/leds/led@1/brightness
+    chown system system /sys/class/leds/led@1/trigger
+    chmod 0660 /sys/class/leds/led@1/trigger

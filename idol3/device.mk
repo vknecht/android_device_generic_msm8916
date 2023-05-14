@@ -26,9 +26,6 @@ PRODUCT_COPY_FILES := \
 # Build generic Audio HAL
 PRODUCT_PACKAGES := audio.primary.idol3
 
-# Build generic lights HAL
-PRODUCT_PACKAGES += lights.idol3
-
 # Create mountpoints and symlinks for firmware files
 PRODUCT_PACKAGES += idol3_firmware
 

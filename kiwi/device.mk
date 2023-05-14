@@ -26,9 +26,6 @@ PRODUCT_COPY_FILES := \
 # Build generic Audio HAL
 PRODUCT_PACKAGES := audio.primary.kiwi
 
-# Build generic lights HAL
-PRODUCT_PACKAGES += lights.kiwi
-
 # Create mountpoints and symlinks for firmware files
 PRODUCT_PACKAGES += kiwi_firmware
 
